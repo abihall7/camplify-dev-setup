@@ -1,0 +1,65 @@
+---
+- name: Get the path to ZSH
+  become: false
+  ansible.builtin.command: which zsh
+  register: zsh_path
+
+- name: "Ensure homebrew zsh is in allowed shells"
+  ansible.builtin.lineinfile:
+    path: /etc/shells
+    line: "{{ zsh_path.stdout }}"
+  become: true
+
+# Plugins
+- name: Install zsh-autosuggestions
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: "{{ ansible_facts['user_dir'] }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    clone: true
+    update: true
+
+- name: Install zsh-syntax-highlighting
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting
+    dest: "{{ ansible_facts['user_dir'] }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+    clone: true
+    update: true
+
+- name: Install zsh-history-substring-search
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-history-substring-search
+    dest: "{{ ansible_facts['user_dir'] }}/.oh-my-zsh/custom/plugins/zsh-history-substring-search"
+    clone: true
+    update: true
+
+# Theme
+- name: Install powerlevel10k
+  ansible.builtin.git:
+    repo: https://github.com/romkatv/powerlevel10k
+    dest: "{{ ansible_facts['user_dir'] }}/.oh-my-zsh/custom/themes/powerlevel10k"
+    clone: true
+    update: true
+
+# Fonts
+- name: Download powerlevel10k fonts
+  ansible.builtin.git:
+    repo: https://github.com/romkatv/powerlevel10k-media
+    dest: "/tmp/powerlevel10k-fonts"
+    clone: true
+    update: true
+
+- name: Install powerlevel10k fonts
+  ansible.builtin.copy:
+    src: "/tmp/powerlevel10k-fonts/{{ item }}"
+    dest: "{{ ansible_facts['user_dir'] }}/Library/Fonts/{{ item }}"
+  loop:
+    - MesloLGS NF Regular.ttf
+    - MesloLGS NF Bold.ttf
+    - MesloLGS NF Italic.ttf
+    - MesloLGS NF Bold Italic.ttf
+
+# ohmyzsh custom scripts
+- name: Install iTerm2-ssh script
+  ansible.builtin.copy:
+    src: iTerm2-ssh.zsh
+    dest: "{{ ansible_facts['user_dir'] }}/.oh-my-zsh/custom/iTerm2-ssh.zsh"
