@@ -38,6 +38,11 @@
       when: configure_terminal
       tags: ["terminal"]
 
+    - name: Import dotfile tasks
+      ansible.builtin.import_tasks: tasks/dotfile.yml
+      when: configure_dotfiles
+      tags: ["dotfile"]
+
     # - name: Import OSX tasks
     #   ansible.builtin.import_tasks: tasks/osx.yml
     #   when: configure_osx
