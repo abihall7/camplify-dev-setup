@@ -39,7 +39,7 @@
       tags: ["terminal"]
 
     - name: Import dotfile tasks
-      ansible.builtin.import_tasks: tasks/dotfile.yml
+      ansible.builtin.import_tasks: tasks/dotfiles.yml
       when: configure_dotfiles
       tags: ["dotfile"]
 

@@ -59,7 +59,7 @@
     - MesloLGS NF Bold Italic.ttf
 
 # ohmyzsh custom scripts
-- name: Install iTerm2-ssh script
-  ansible.builtin.copy:
-    src: iTerm2-ssh.zsh
-    dest: "{{ ansible_facts['user_dir'] }}/.oh-my-zsh/custom/iTerm2-ssh.zsh"
+# - name: Install iTerm2-ssh script
+#   ansible.builtin.copy:
+#     src: iTerm2-ssh.zsh
+#     dest: "{{ ansible_facts['user_dir'] }}/.oh-my-zsh/custom/iTerm2-ssh.zsh"
