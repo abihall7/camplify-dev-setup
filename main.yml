@@ -13,53 +13,44 @@
 
   roles:
     - role: elliotweiser.osx-command-line-tools
-    - role: geerlingguy.mac.homebrew
-      tags: ["homebrew"]
+    # - role: geerlingguy.mac.homebrew
+    #   tags: ["homebrew"]
     - role: geerlingguy.dotfiles
       when: configure_dotfiles
       tags: ["dotfiles"]
-    - role: geerlingguy.mac.dock
-      when: configure_dock
-      tags: ["dock"]
+    # - role: geerlingguy.mac.dock
+    #   when: configure_dock
+    #   tags: ["dock"]
     - role: gantsign.oh-my-zsh
       users:
         - username: "{{ ansible_facts['user_id'] }}"
       tags: ["ohmyzsh"]
-    - role: gantsign.visual-studio-code-extensions
-      users:
-        - username: "{{ ansible_facts['user_id'] }}"
-          visual_studio_code_extensions: "{{ vscode_extensions }}"
-          visual_studio_code_extensions_absent: "{{ vscode_extensions_absent }}"
-      tags: ["vscode", "vscode-extensions"]
+    # - role: gantsign.visual-studio-code-extensions
+    #   users:
+    #     - username: "{{ ansible_facts['user_id'] }}"
+    #       visual_studio_code_extensions: "{{ vscode_extensions }}"
+    #       visual_studio_code_extensions_absent: "{{ vscode_extensions_absent }}"
+    #   tags: ["vscode", "vscode-extensions"]
 
   tasks:
-    - name: Import sudoers tasks
-      ansible.builtin.import_tasks: tasks/sudoers.yml
-      when: configure_sudoers
-      tags: ["sudoers"]
-
     - name: Import terminal tasks
       ansible.builtin.import_tasks: tasks/terminal.yml
       when: configure_terminal
       tags: ["terminal"]
 
-    - name: Import OSX tasks
-      ansible.builtin.import_tasks: tasks/osx.yml
-      when: configure_osx
-      tags: ["osx"]
+    # - name: Import OSX tasks
+    #   ansible.builtin.import_tasks: tasks/osx.yml
+    #   when: configure_osx
+    #   tags: ["osx"]
 
-    - name: Import extra-packages tasks
-      ansible.builtin.import_tasks: tasks/extra-packages.yml
-      tags: ["extra-packages"]
+    # - name: Import extra-packages tasks
+    #   ansible.builtin.import_tasks: tasks/packages.yml
+    #   tags: ["extra-packages"]
 
-    - name: Import homebrew tasks
-      ansible.builtin.import_tasks: tasks/homebrew.yml
-      tags: ["homebrew"]
+    # - name: Import homebrew tasks
+    #   ansible.builtin.import_tasks: tasks/homebrew.yml
+    #   tags: ["homebrew"]
 
-    - name: Import vscode settings tasks
-      ansible.builtin.import_tasks: tasks/vscode-settings.yml
-      tags: ["vscode", "vscode-settings"]
-
-    - name: Import SSH tasks
-      ansible.builtin.import_tasks: tasks/ssh.yml
-      tags: ["ssh"]
+    # - name: Import vscode settings tasks
+    #   ansible.builtin.import_tasks: tasks/vscode-settings.yml
+    #   tags: ["vscode", "vscode-settings"]
