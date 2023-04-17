@@ -4,7 +4,9 @@ Configures and installs required software for a dev team setup.
 
 ## Ansible
 
-An open source, command-line IT automation software application written in Python.
+Ansible is an open-source automation tool that simplifies the deployment, configuration, and management of IT infrastructure. It allows system administrators to automate repetitive tasks, such as software installation, system configuration, and application deployment, using a simple and human-readable language. Ansible also provides features for role-based access control, task delegation, and reporting, making it a popular choice for managing complex IT environments.
+
+The use case here is for the local dev machine setup which is completed by the cloning of this repo and running locally, rather than configuration to the managed hosts via SSH or WinRM.
 
 ## Installation
 
