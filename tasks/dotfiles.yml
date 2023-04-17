@@ -5,3 +5,4 @@
   with_items: 
     - .osx
     - .p10k.zsh
+    - .zshrc
