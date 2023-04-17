@@ -1,10 +1,10 @@
 ---
 downloads: ~/.ansible-downloads/
 
-# configure_dotfiles: true
-# configure_terminal: true
-# configure_osx: true
-# oh_my_zsh_write_zshrc: false
+configure_dotfiles: true
+configure_terminal: true
+configure_osx: true
+oh_my_zsh_write_zshrc: false
 
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: true
