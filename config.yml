@@ -35,21 +35,21 @@ dockitems_remove:
 #     path: "/Applications/System Settings.app/"
 #     pos: 1
 
-# configure_sudoers: false
-# sudoers_custom_config: ""
+configure_sudoers: false
+sudoers_custom_config: ""
 # Example:
 # sudoers_custom_config: |
 #   # Allow users in admin group to use sudo with no password.
 #   %admin ALL=(ALL) NOPASSWD: ALL
 
-# homebrew_installed_packages:
+homebrew_installed_packages:
 #   # - ansible # Installed via Pip.
 #   - autoconf
 #   - bash-completion
 #   - doxygen
 #   - gettext
-#   - git
-#   - github/gh/gh
+  # - git
+  # - github/gh/gh
 #   - go
 #   - gpg
 #   - httpie
@@ -58,8 +58,8 @@ dockitems_remove:
 #   - sqlite
 #   - mcrypt
 #   - nmap
-#   - node
-#   - nvm
+  - node
+  - nvm
 #   - php
 #   - ssh-copy-id
 #   - cowsay
@@ -91,13 +91,13 @@ dockitems_remove:
 #   - terraform-docs
 #   - checkov
 
-# homebrew_taps:
-#   - homebrew/core
-#   - homebrew/cask
-#   - possatti/possatti
+homebrew_taps:
+  - homebrew/core
+  - homebrew/cask
+  - possatti/possatti
 
-# homebrew_cask_appdir: /Applications
-# homebrew_cask_apps:
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
 #   - chromedriver
 #   - docker
 #   - firefox
@@ -105,7 +105,7 @@ dockitems_remove:
 #   - slack
 #   - transmit
 #   - iterm2
-#   - visual-studio-code
+  - visual-studio-code
 #   - spotify
 #   - 1password
 #   - rectangle
