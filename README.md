@@ -14,7 +14,7 @@ The use case here is for the local dev machine setup which is completed by the c
 2. [Install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html):
 
     1. Run the following command to add Python 3 to your $PATH: `export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"`
-    2. Upgrade Pip: sudo `pip3 install --upgrade pip`
+    2. Upgrade Pip: `sudo pip3 install --upgrade pip`
     3. Install Ansible: `pip3 install ansible`
 
 3. Clone this repository
